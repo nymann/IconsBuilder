@@ -141,7 +141,7 @@ namespace IconsBuilder
                 }
                 else
                 {
-                    Show = () => !Hidden() && Entity.GetComponent<Life>()?.HPPercentage > 0.02 ?? false;
+                    Show = () => !Hidden() && Entity.GetComponent<Life>()?.HPPercentage > 0.02;
                 }
             }
         }
