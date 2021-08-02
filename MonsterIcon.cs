@@ -77,15 +77,18 @@ namespace IconsBuilder
 
                 if (entity.HasComponent<ObjectMagicProperties>())
                 {
-                    var objectMagicProperties = entity.GetComponent<ObjectMagicProperties>();
-
-                    var mods = objectMagicProperties.Mods;
-
-                    if (mods != null)
+                    var objectMagicProperties = entity?.GetComponent<ObjectMagicProperties>();
+                    if (objectMagicProperties != null)
                     {
-                        if (mods.Contains("MonsterConvertsOnDeath_")) Show = () => entity.IsAlive && entity.IsHostile;
 
-                        modName = mods.FirstOrDefaultF(modIcons.ContainsKey);
+                        var mods = objectMagicProperties.Mods;
+
+                        if (mods != null)
+                        {
+                            if (mods.Contains("MonsterConvertsOnDeath_")) Show = () => entity.IsAlive && entity.IsHostile;
+
+                            modName = mods.FirstOrDefaultF(modIcons.ContainsKey);
+                        }
                     }
                 }
 
